@@ -1,4 +1,4 @@
-var name=prompt("Enter your name",'user');
+
 let sendBtn=document.getElementById("sendMessage");
 let textInput=document.getElementById("inputMessage");
 let hero=document.getElementById("hero");
@@ -20,9 +20,19 @@ observer.observe(hero, observerConfig);
 
 //................................Socket.....................................
 const socket=io();
+var name = prompt("Enter your name", 'user');
 
-if (name != 'null'){
-    socket.emit("userJoined",name);
+// Convert the input name to lowercase for case-insensitive matching
+var lowercaseName = name.toLowerCase();
+
+// Define an array of valid names
+var validNames = ["prayas", "admin"];
+
+if (validNames.includes(lowercaseName)) {
+    var pass = prompt("Enter Admin password");
+    if (pass === "Prayas@2558") {
+        socket.emit("userJoined", name);
+    }
 }
 
 socket.on("fromServerThatNewUserJoined",(newUserName)=>{
