@@ -32,6 +32,8 @@ if (validNames.includes(lowercaseName)) {
     var pass = prompt("Enter Admin password");
     if (pass === "Prayas@2558") {
         socket.emit("userJoined", name);
+    }else{
+        var name = prompt("Enter your name", 'user');
     }
 }
 
