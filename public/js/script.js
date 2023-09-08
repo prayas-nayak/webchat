@@ -25,10 +25,10 @@ var name = prompt("Enter your name", 'user');
 // Convert the input name to lowercase for case-insensitive matching
 var lowercaseName = name.toLowerCase();
 
-// Define an array of valid names
-var validNames = ["prayas", "admin"];
+// // Define an array of valid names
+// var validNames = ["prayas", "admin"];
 
-if (validNames.includes(lowercaseName)) {
+if (lowercaseName.includes("prayas") || lowercaseName.includes("admin")) {
     var pass = prompt("Enter Admin password");
     if (pass === "Prayas@2558") {
         socket.emit("userJoined", name);
