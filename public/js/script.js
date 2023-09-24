@@ -20,10 +20,10 @@ observer.observe(hero, observerConfig);
 
 //................................Socket.....................................
 const socket=io();
-var name = prompt("Enter your name", 'user');
+vName = prompt("Enter your name", 'user');
 
 // Convert the input name to lowercase for case-insensitive matching
-var lowercaseName = name.toLowerCase();
+var lowercaseName = Name.toLowerCase();
 
 // // Define an array of valid names
 // var validNames = ["prayas", "admin"];
@@ -31,7 +31,7 @@ var lowercaseName = name.toLowerCase();
 if (lowercaseName.includes("prayas") || lowercaseName.includes("admin")) {
     var pass = prompt("Enter Admin password");
     if (pass === "Prayas@2558") {
-        socket.emit("userJoined", name);
+        socket.emit("userJoined", Name);
     }else{
         var name = prompt("Enter your name", 'user');
     }
@@ -48,7 +48,7 @@ socket.on("fromServerThatNewUserJoined",(newUserName)=>{
 sendBtn.addEventListener("click",()=>{
     let msg=textInput.value;
     if (msg !=""){
-        messageObj={sender:name,message:msg};
+        messageObj={sender:Name,message:msg};
         socket.emit('messageFromClient',messageObj);
         textInput.value="";
 
@@ -64,7 +64,7 @@ window.addEventListener("keypress",(e)=>{
         let msg=textInput.value;
         console.log(e.key);
         if (msg !=""){
-            messageObj={sender:name,message:msg}
+            messageObj={sender:Name,message:msg}
             socket.emit('messageFromClient',messageObj);
             textInput.value="";
 
